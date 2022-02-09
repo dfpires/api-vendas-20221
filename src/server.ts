@@ -1,0 +1,1 @@
+console.log(`Funcionou nosso projeto Node com TS`)
