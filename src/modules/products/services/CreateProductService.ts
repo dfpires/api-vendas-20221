@@ -16,6 +16,7 @@ class CreateProductService {
         // obter o repositório
         const productRepository = getCustomRepository(ProductRepository)
         const productExist = await productRepository.findByName(name);
+        // não pode criar produto com nome já existente
         if (productExist){
             throw new AppError('Já existe produto com este nome', 400)
         }

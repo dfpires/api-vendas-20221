@@ -6,6 +6,7 @@ class DeleteProductService {
     public async execute(id: string) {
         const productRepository = getCustomRepository(ProductRepository)
         const productExist = await productRepository.findOne(id)
+        // não podemos remover um produto que já exista
         if (!productExist){
             throw new AppError('Produto não axiste', 400)
         }
