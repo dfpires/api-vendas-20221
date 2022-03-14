@@ -19,7 +19,7 @@ class UpdateProductService {
             throw new AppError('Produto não existe', 400)
         }
         // verifica se já existe produto com o mesmo nome
-        let productName = productRepository.findByName(name)
+        let productName = await productRepository.findByName(name)
         if (productName){
             throw new AppError('Produto já existe', 400)
         }
