@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import express, {NextFunction, Request, Response} from 'express'
 import router from './routes'
-import './typeorm'
+import './typeorm' // chama conexão com o banco
 import AppError from './errors/AppError'
 import 'express-async-errors'
 
