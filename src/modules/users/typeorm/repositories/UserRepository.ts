@@ -14,3 +14,5 @@ class UserRepository extends Repository<User> {
         return user
     }
 }
+
+export default UserRepository
