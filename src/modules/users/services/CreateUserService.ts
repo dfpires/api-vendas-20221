@@ -2,7 +2,7 @@ import User from '../typeorm/entities/User'
 import UserRepository from '../typeorm/repositories/UserRepository'
 import {getCustomRepository} from 'typeorm'
 import AppError from '../../../errors/AppError'
-import { Hash } from 'crypto'
+import { hash } from 'bcryptjs'
 
 // cria um tipo de dado para receber info do usuário
 interface IRequest {
@@ -21,9 +21,12 @@ class CreateUserService {
             throw new AppError('Email já cadastrado', 400)
         }
         // email não existe
-        let newPassword = await hash(password, 8)
+        // criptografamos a senha do usuário
+        let newPassword = await hash(password, 8) // 
         let newUser = userRepository.create({
-            name, email, newPassword
+            name, 
+            email, 
+            password: newPassword
         })
         // salvo no BD
         userRepository.save(newUser)
