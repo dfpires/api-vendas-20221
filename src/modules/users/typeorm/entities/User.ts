@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn} from 'typeorm'
-Entity('user')
+@Entity('user')
 class User{
     @PrimaryGeneratedColumn('uuid')
     id: string
