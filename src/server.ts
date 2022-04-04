@@ -1,13 +1,16 @@
 import 'reflect-metadata'
 import express, {NextFunction, Request, Response} from 'express'
+import 'express-async-errors'
+import {errors} from 'celebrate'
 import router from './routes'
 import './typeorm' // chama conexão com o banco
 import AppError from './errors/AppError'
-import 'express-async-errors'
+
 
 let server = express()
 server.use(express.json())
 server.use(router)
+server.use(errors()) // instancia um objeto da classe errors e pede para o servidor utilizar
 server.use(
     (error:Error, request:Request, response:Response, next: NextFunction) => {
         // erro foi lançado pelo AppError

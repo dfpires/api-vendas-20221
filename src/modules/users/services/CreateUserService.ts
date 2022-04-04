@@ -12,7 +12,7 @@ interface IRequest {
 }
 
 class CreateUserService {
-    public async execute({name, email, password}: IRequest): Promise<User> {
+    public async execute({name, email, password}: IRequest) {
         // instancia um repositório de usuário
         let userRepository = getCustomRepository(UserRepository)
         // regra de negócio - verifica se já temos usuário com email cadastrado
