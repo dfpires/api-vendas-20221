@@ -10,4 +10,8 @@ const userController = new UserController()
 userRouter.get('/', userController.index)
 userRouter.post('/', userController.create)
 
+// rota para checar email e senha do usuário
+userRouter.get('/:email/:password', userController.show)
+
+
 export default userRouter
